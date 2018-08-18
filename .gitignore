@@ -1,0 +1,86 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# OS #
+._*
+.DocumentRevisions-V100
+.DS_Store
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Compiled source #
+###################
+**/*.com
+**/*.class
+**/*.dll
+**/*.exe
+**/*.o
+*.so
+
+# Compression #
+**/*.7z
+**/*.dmg
+**/*.gz
+**/*.iso
+**/*.jar
+**/*.rar
+**/*.tar
+**/*.tgz
+**/*.zip
+
+# IDE #
+/.idea
+.classpath
+.c9/
+.project
+.settings/
+*.launch
+*.sublime-*
+*.swp
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# ENV/RC #
+.cache
+.env
+.git
+.grunt
+.localrc
+.lock-wscript
+/.sass-cache
+/connect.lock
+/libpeerconnection.log
+debug.log
+npm-debug.log
+testem.log
+yarn-error.log
+
+.env.*
+!.env.example
+
+# Repository #
+.sonar
+.webpack.json
+*.log
+/coverage
+/dist
+/doc
+/e2e/*.js
+/e2e/*.map
+/logs
+/mocha.json
+/out-tsc
+/tmp
+/temp
+/typings
+bower_components
+build/Release
+lib-cov
+node_modules

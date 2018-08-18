@@ -1,0 +1,69 @@
+{
+  "name": "@seantrane/github-label-presets",
+  "description": "GitHub Labels that are logical, colorful and sensible.",
+  "version": "0.0.0",
+  "author": "@seantrane",
+  "license": "MIT",
+  "homepage": "https://github.com/seantrane/github-label-presets",
+  "repository": "github:seantrane/github-label-presets",
+  "bugs": "https://github.com/seantrane/github-label-presets/issues",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "commitmsg": "commitlint -E GIT_PARAMS",
+    "git:commit": "git-cz",
+    "lint:md": "npm run markdownlint -- -i 'node_modules/' -c '.markdownlint.yaml' './'",
+    "lint": "npm run lint:md",
+    "markdownlint": "markdownlint",
+    "semantic-release": "semantic-release"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "@commitlint/travis-cli": "^7.0.0",
+    "@semantic-release/changelog": "^3.0.0",
+    "@semantic-release/git": "^7.0.1",
+    "commitizen": "^2.10.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^0.14.3",
+    "markdownlint-cli": "^0.12.0",
+    "semantic-release": "^15.9.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ],
+    "prepare": [
+      {
+        "path": "@semantic-release/changelog",
+        "changelogTitle": "# CHANGELOG"
+      },
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "publish": [
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ],
+    "success": [
+      "@semantic-release/github"
+    ],
+    "fail": [
+      "@semantic-release/github"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+sudo: false
+language: node_js
+node_js:
+  - '8'
+cache:
+  directories:
+    - ~/.npm
+    - node_modules
+notifications:
+  email: false
+branches:
+  only:
+    - master
+    - /^greenkeeper.*$/
+before_install:
+  # package-lock.json was introduced in npm@5
+  - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
+  - npm install -g greenkeeper-lockfile @azu/github-label-setup
+install:
+  - travis_retry npm install
+before_script: greenkeeper-lockfile-update
+script:
+  - commitlint-travis
+  - npm run lint
+  - github-label-setup -d -l ${PWD}/labels.json
+after_script: greenkeeper-lockfile-upload
+jobs:
+  include:
+    - stage: deploy
+      if: branch = master
+      script:
+        - github-label-setup -l ${PWD}/labels.json
+        - npm run semantic-release
