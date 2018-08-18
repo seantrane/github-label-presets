@@ -93,6 +93,10 @@
     "color": "e6e6e6"
   },
   {
+    "name": "semantic-release",
+    "color": "e6e6e6"
+  },
+  {
     "name": "state: approved",
     "color": "91ca55",
     "description": "Approved to proceed.",

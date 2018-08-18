@@ -35,7 +35,7 @@ There are many very good examples of GitHub Label strategies. Almost all of them
   - `state` = describe decision; `approved`, `blocked`, `inactive` or `pending`
   - `type` = describe type; `bug`, `chore`, `discussion`, `docs`, `feature`, `fix`, `security`, `testing`
   - `work` = describe situation; `chaotic`, `complex`, `complicated` or `obvious`
-- The only labels without prefixes are; `breaking`, `good first issue`, `greenkeeper`, `help` and `stale`
+- The only labels without prefixes are; `breaking`, `good first issue`, `greenkeeper`, `help`, `stale` and `semantic-release`
 
 The _GitHub Label presets_ are meant to be used with one of two packages:
 
