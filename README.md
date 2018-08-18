@@ -10,7 +10,7 @@
 
 **TL;DR:** _Want [beautiful GitHub Labels like these](https://github.com/seantrane/github-label-presets/labels)?_ Want to have them unobtrusively synced with your repos? Want to persist them indefinitely? Want to maintain your own labels? If the answers have been yes, this is definitely not _too long_, please read on.
 
-**TL;DR:2** Really? Still _too long_? From your repo directory, run; `npm install -g @azu/github-label-setup && github-label-setup --token <gh_token> -l @seantrane/github-label-presets`
+**TL;DR:2** Really? Still _too long_? From your repo directory, run; `npm install -g github-label-sync && github-label-sync -a <github_token> -l 'https://git.io/fAe5i' <github_name>/<github_repo>`
 
 ### Details
 
@@ -37,35 +37,20 @@ There are many very good examples of GitHub Label strategies. Almost all of them
   - `work` = describe situation; `chaotic`, `complex`, `complicated` or `obvious`
 - The only labels without prefixes are; `breaking`, `good first issue`, `greenkeeper`, `help`, `stale` and `semantic-release`
 
-The _GitHub Label presets_ are meant to be used with one of two packages:
+The _GitHub Label presets_ are meant to be used with [github-label-sync](https://github.com/Financial-Times/github-label-sync):
 
-- [github-label-sync](https://github.com/Financial-Times/github-label-sync)
-  - _Synchronise your GitHub labels with as few destructive operations as possible - similar labels get renamed._
-  - Load [label config](https://github.com/Financial-Times/github-label-sync#label-json) via path or URL.
-  - Run on specified repo via CLI parameter.
-- [@azu/github-label-setup](https://github.com/azu/github-label-setup) _(a wrapper of `github-label-sync`)_
-  - _Opinionated GitHub label setup tool._
-  - Works without config, using [default opinionated labels](https://github.com/azu/github-label-setup#default-labels).
-  - Load [label config](https://github.com/Financial-Times/github-label-sync#label-json) via path, URL or [npm package](https://github.com/azu/github-label-setup#npm-packages-for-labels).
+- _Synchronise your GitHub labels with as few destructive operations as possible - similar labels get renamed._
+- Load [label config](https://github.com/Financial-Times/github-label-sync#label-json) via path or URL.
+- Run on specified repo via CLI parameter.
 
 ## Usage <a id="usage"></a>
 
 **Required:** [Generate a GitHub Access Token](https://github.com/settings/tokens), provide it via `GITHUB_ACCESS_TOKEN` environment variable. _If you cannot provide token as env-var, you may also pass it via CLI._
 
-### via `github-label-sync` <a id="usage-github-label-sync"></a>
-
 1. Install `npm install -g github-label-sync`
-2. Dry-run `github-label-sync -l https://github.com/seantrane/github-label-presets/blob/master/labels.json  <github_name>/<github_repo>`
-3. Run `github-label-sync -l https://github.com/seantrane/github-label-presets/blob/master/labels.json  <github_name>/<github_repo>`
-4. _optional:_ provide token via param; `github-label-sync -a <gh_token> -l ...`
-
-### via `@azu/github-label-setup` <a id="usage-github-label-setup"></a>
-
-1. Run `npm install -g @azu/github-label-setup`
-2. Go to your git-initiated project repository.
-3. Dry-run `github-label-setup -d -l @seantrane/github-label-presets`
-4. Run `github-label-setup -l @seantrane/github-label-presets`
-5. _optional:_ provide token via param; `github-label-setup --token <gh_token> -l ...`
+2. Dry-run `github-label-sync -l 'https://git.io/fAe5i'  <github_name>/<github_repo>`
+3. Run `github-label-sync -l 'https://git.io/fAe5i'  <github_name>/<github_repo>`
+4. _optional:_ provide token via param; `github-label-sync -a <github_token> -l ...`
 
 ### CI/CD
 
@@ -73,7 +58,7 @@ You can use your CI/CD process to automate the periodic syncing of your reposito
 
 ### Config your own...
 
-You can provide your own `labels.json`, to either tool, via the `[ -l, --lables ]` argument.
+You can provide your own `labels.json` via the `[ -l, --lables ]` argument.
 
 ## Contribute <a id="contribute"></a>
 
