@@ -48,7 +48,7 @@ The _GitHub Label presets_ are meant to be used with [github-label-sync](https:/
 **Required:** [Generate a GitHub Access Token](https://github.com/settings/tokens), provide it via `GITHUB_ACCESS_TOKEN` environment variable. _If you cannot provide token as env-var, you may also pass it via CLI._
 
 1. Install `npm install -g github-label-sync`
-2. Dry-run `github-label-sync -l 'https://git.io/fAe5i'  <github_name>/<github_repo>`
+2. Dry-run `github-label-sync -d -l 'https://git.io/fAe5i'  <github_name>/<github_repo>`
 3. Run `github-label-sync -l 'https://git.io/fAe5i'  <github_name>/<github_repo>`
 4. _optional:_ provide token via param; `github-label-sync -a <github_token> -l ...`
 
