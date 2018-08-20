@@ -15,7 +15,7 @@ branches:
 before_install:
   # package-lock.json was introduced in npm@5
   - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
-  - npm install -g greenkeeper-lockfile @azu/github-label-sync
+  - npm install -g greenkeeper-lockfile github-label-sync
 install:
   - travis_retry npm install
 before_script: greenkeeper-lockfile-update
