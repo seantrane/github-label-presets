@@ -89,10 +89,6 @@
     ]
   },
   {
-    "name": "stale",
-    "color": "e6e6e6"
-  },
-  {
     "name": "semantic-release",
     "color": "e6e6e6"
   },
@@ -134,6 +130,7 @@
     "aliases": [
       "duplicate",
       "invalid",
+      "stale",
       "Status: Abandoned",
       "status: duplicate",
       "status: wontfix",
