@@ -24,11 +24,11 @@ There are many very good examples of GitHub Label strategies. Almost all of them
 `@seantrane/github-label-presets` were designed according to the following thoughts and principles:
 
 - GitHub Labels are used for both Issues and Pull Requests (PR), therefore the label context should be agnostic.
-- An Issue/PR without labels should not require labels to solicit attention, therefore the default state is label-less.
-- A glance at an Issue/PR with labels should provide; priority, effort and the state of solution and/or decision-making.
-- _"High Priority"_, sure, but _"Low Priority"_ is a joke; go label-less.
+- An Issue/PR without labels should not require labels to solicit attention, therefore the default state should be label-less.
+- Issue/PR labels should only provide important context; priority, effort and the state of solution and/or decision-making.
+- _"High Priority"_, sure, but _"Low Priority"_ is a joke; go label-less instead.
 - Labels and their associated colors should have a logical connection that is intuitive at-a-glance.
-- Labels should be lowercase; easier to type, less competitive with Label-names.
+- Labels should be lowercase. It's easier to type and less competitive with Label-names.
 - Prefixes matter. Labels get chaotic without them. The chosen are;
   - `effort` = relative effort involved, fibonacci from `1` to `13`
   - `priority` = designate immediacy; `now`, `2day` or `soon`
