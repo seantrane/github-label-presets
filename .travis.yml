@@ -18,16 +18,29 @@ before_install:
   - npm install -g greenkeeper-lockfile github-label-sync
 install:
   - travis_retry npm install
-before_script: greenkeeper-lockfile-update
-script:
-  - commitlint-travis
-  - npm run lint
-  - github-label-sync -d -l ${PWD}/labels.json
-after_script: greenkeeper-lockfile-upload
+stages:
+  - before
+  - test
+  - after
+  - name: deploy
+    if: branch = master
 jobs:
   include:
+    - stage: before
+      name: 'Greenkeeper lockfile update'
+      script: greenkeeper-lockfile-update
+    - name: 'Lint commit messages'
+      script: commitlint-travis
+    - stage: test
+      name: 'Lint Analysis'
+      script: npm run lint
+    - name: 'Sync GitHub Labels Dry-Run'
+      script: github-label-sync -d -l ${PWD}/labels.json
+    - stage: after
+      name: 'Greenkeeper lockfile upload'
+      script: greenkeeper-lockfile-upload
     - stage: deploy
-      if: branch = master
-      script:
-        - github-label-sync -l ${PWD}/labels.json
-        - npm run semantic-release
+      name: 'Sync GitHub Labels'
+      script: github-label-sync -l ${PWD}/labels.json
+    - name: 'Publish'
+      script: npm run semantic-release
