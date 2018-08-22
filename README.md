@@ -56,6 +56,18 @@ The _GitHub Label presets_ are meant to be used with [github-label-sync](https:/
 
 You can use your CI/CD process to automate the periodic syncing of your repository labels. This can help persist order automatically.
 
+#### Travis CI
+
+Make sure `GITHUB_ACCESS_TOKEN` env-var is available.
+
+```yaml
+before_install: npm install -g github-label-sync
+script: github-label-sync -d -l 'https://git.io/fAe5i' <github_name>/<github_repo>
+deploy:
+  provider: script
+  script: github-label-sync -l 'https://git.io/fAe5i' <github_name>/<github_repo>
+```
+
 ### Config your own...
 
 You can provide your own `labels.json` via the `[ -l, --lables ]` argument.
