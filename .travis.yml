@@ -35,12 +35,12 @@ jobs:
       name: 'Lint Analysis'
       script: npm run lint
     - name: 'Sync GitHub Labels Dry-Run'
-      script: github-label-sync -d -l ${PWD}/labels.json
+      script: github-label-sync -a "$GH_TOKEN" -d -l ${PWD}/labels.json
     - stage: after
       name: 'Greenkeeper lockfile upload'
       script: greenkeeper-lockfile-upload
     - stage: deploy
       name: 'Sync GitHub Labels'
-      script: github-label-sync -l ${PWD}/labels.json
+      script: github-label-sync -a "$GH_TOKEN" -l ${PWD}/labels.json
     - name: 'Publish'
       script: npm run semantic-release
