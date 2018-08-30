@@ -19,28 +19,23 @@ before_install:
 install:
   - travis_retry npm install
 stages:
-  - before
   - test
-  - after
   - name: deploy
-    if: branch = master
+    if: repo = seantrane/github-label-presets
+        AND type != pull_request
+        AND branch = master
 jobs:
   include:
-    - stage: before
-      name: 'Greenkeeper lockfile update'
-      script: greenkeeper-lockfile-update
-    - name: 'Lint commit messages'
-      script: commitlint-travis
     - stage: test
-      name: 'Lint Analysis'
-      script: npm run lint
-    - name: 'Sync GitHub Labels Dry-Run'
-      script: travis_retry github-label-sync -a "$GH_TOKEN" -d -l ${PWD}/labels.json
-    - stage: after
-      name: 'Greenkeeper lockfile upload'
-      script: greenkeeper-lockfile-upload
+      name: 'Checks and Tests'
+      script:
+        - greenkeeper-lockfile-update
+        - commitlint-travis
+        - npm run lint
+        - travis_retry github-label-sync -a "$GH_TOKEN" -d -l ${PWD}/labels.json
+        - greenkeeper-lockfile-upload
     - stage: deploy
-      name: 'Sync GitHub Labels'
-      script: travis_retry github-label-sync -a "$GH_TOKEN" -l ${PWD}/labels.json
-    - name: 'Publish'
-      script: npm run semantic-release
+      name: 'Publish and Release'
+      script:
+        - travis_retry github-label-sync -a "$GH_TOKEN" -l ${PWD}/labels.json
+        - npm run semantic-release
