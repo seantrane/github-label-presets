@@ -26,7 +26,7 @@
     "@semantic-release/git": "^7.0.1",
     "commitizen": "^2.10.1",
     "cz-conventional-changelog": "^2.1.0",
-    "husky": "^0.14.3",
+    "husky": "^1.0.0",
     "markdownlint-cli": "^0.13.0",
     "semantic-release": "^15.9.5"
   },
