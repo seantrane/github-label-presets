@@ -11,7 +11,6 @@
     "access": "public"
   },
   "scripts": {
-    "commitmsg": "commitlint -E GIT_PARAMS",
     "git:commit": "git-cz",
     "lint:md": "npm run markdownlint -- -i 'node_modules/' -c '.markdownlint.yaml' './'",
     "lint": "npm run lint:md",
@@ -39,6 +38,11 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "release": {
     "verifyConditions": [
