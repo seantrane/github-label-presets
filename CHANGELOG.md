@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.0.3](https://github.com/seantrane/github-label-presets/compare/v1.0.2...v1.0.3) (2018-11-07)
+
+
+### Bug Fixes
+
+* upgrade dependencies, resolve security warning ([0cc349c](https://github.com/seantrane/github-label-presets/commit/0cc349c))
+
 ## [1.0.2](https://github.com/seantrane/github-label-presets/compare/v1.0.1...v1.0.2) (2018-08-22)
 
 
