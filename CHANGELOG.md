@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## [1.0.4](https://github.com/seantrane/github-label-presets/compare/v1.0.3...v1.0.4) (2019-02-09)
+
+
+### Bug Fixes
+
+* change license from MIT to ISC ([403de38](https://github.com/seantrane/github-label-presets/commit/403de38))
+* **readme:** improve description and documentation ([37c0d40](https://github.com/seantrane/github-label-presets/commit/37c0d40))
+
 ## [1.0.3](https://github.com/seantrane/github-label-presets/compare/v1.0.2...v1.0.3) (2018-11-07)
 
 
