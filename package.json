@@ -3,7 +3,7 @@
   "description": "GitHub Labels that are logical, colorful and sensible.",
   "version": "1.0.3",
   "author": "@seantrane",
-  "license": "MIT",
+  "license": "ISC",
   "homepage": "https://github.com/seantrane/github-label-presets",
   "repository": "github:seantrane/github-label-presets",
   "bugs": "https://github.com/seantrane/github-label-presets/issues",
