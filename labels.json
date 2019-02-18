@@ -50,10 +50,6 @@
     ]
   },
   {
-    "name": "greenkeeper",
-    "color": "0e8a16"
-  },
-  {
     "name": "help",
     "color": "0e8a16",
     "aliases": [
@@ -153,6 +149,10 @@
     "description": "Converting measurements, reorganizing folder structure, and other necessary (but less impactful) tasks.",
     "aliases": [
       "chore",
+      "dependabot",
+      "dependencies",
+      "dependency",
+      "greenkeeper",
       "legal",
       "maintenance",
       "Type: Maintenance",
