@@ -49,7 +49,7 @@ Thank you for contributing.
 ## Clone the Repository <a id="clone-repo"></a>
 
 ```bash
-git clone https://github.com/seantrane/github-label-presets.git github-label-presets && cd github-label-presets
+git clone git@github.com:seantrane/github-label-presets.git github-label-presets && cd github-label-presets
 ```
 
 ## Install Dependencies <a id="install-dependencies"></a>
