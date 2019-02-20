@@ -11,41 +11,24 @@
     "access": "public"
   },
   "scripts": {
-    "git:commit": "git-cz",
-    "lint:md": "npm run markdownlint -- -i 'node_modules/' -c '.markdownlint.yaml' './'",
+    "lint:md": "markdownlint -i '**/node_modules/**' -c '.markdownlint.yaml' './'",
     "lint": "npm run lint:md",
-    "markdownlint": "markdownlint",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.5.1",
-    "@commitlint/config-conventional": "^7.5.0",
-    "@commitlint/travis-cli": "^7.5.1",
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/travis-cli": "^7.5.2",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/git": "^7.0.8",
-    "commitizen": "^3.0.5",
-    "cz-conventional-changelog": "^2.1.0",
+    "commitlint-config-awesome": "^1.0.2",
     "husky": "^1.3.1",
-    "marked": "^0.6.0",
     "markdownlint-cli": "^0.13.0",
     "semantic-release": "^15.13.3"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
   "commitlint": {
     "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "rules": {
-      "header-max-length": [
-        0,
-        "always",
-        80
-      ]
-    }
+      "awesome"
+    ]
   },
   "husky": {
     "hooks": {
