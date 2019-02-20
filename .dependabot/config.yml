@@ -8,7 +8,15 @@ update_configs:
     default_labels:
       - chore
     update_schedule: daily
-    version_requirement_updates: auto
+    # version_requirement_updates: auto
+    # allowed_updates:
+    #   - match:
+    #       update_type: all
+    #       dependency_type: direct
+    #   - match:
+    #       update_type: security
+    #       dependency_type: indirect
+    # ignored_updates: []
     automerged_updates:
       - match:
           dependency_type: development
