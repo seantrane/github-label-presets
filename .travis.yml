@@ -14,7 +14,7 @@ branches:
 before_install:
   # package-lock.json was introduced in npm@5
   - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
-  - npm install -g github-label-sync greenkeeper-lockfile
+  - npm install -g github-label-sync
 install:
   - travis_retry npm install
 stages:
@@ -28,11 +28,9 @@ jobs:
     - stage: test
       name: 'Checks and Tests'
       script:
-        - greenkeeper-lockfile-update
         - commitlint-travis
         - npm run lint
         - travis_retry github-label-sync -a "$GH_TOKEN" -d -l ${PWD}/labels.json
-        - greenkeeper-lockfile-upload
     - stage: deploy
       name: 'Publish and Release'
       script:

@@ -2,7 +2,7 @@
 
 > :octocat: GitHub Labels that are logical, colorful and sensible.
 
-[![Build Status](https://travis-ci.com/seantrane/github-label-presets.svg?branch=master)](https://travis-ci.com/seantrane/github-label-presets) [![devDependencies Status](https://david-dm.org/seantrane/github-label-presets/dev-status.svg)](https://david-dm.org/seantrane/github-label-presets?type=dev) [![Greenkeeper badge](https://badges.greenkeeper.io/seantrane/github-label-presets.svg)](https://greenkeeper.io/) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Build Status](https://travis-ci.com/seantrane/github-label-presets.svg?branch=master)](https://travis-ci.com/seantrane/github-label-presets) [![devDependencies Status](https://david-dm.org/seantrane/github-label-presets/dev-status.svg)](https://david-dm.org/seantrane/github-label-presets?type=dev) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 [![npm latest version](https://img.shields.io/npm/v/@seantrane/github-label-presets/latest.svg)](https://www.npmjs.com/package/@seantrane/github-label-presets) [![npm next version](https://img.shields.io/npm/v/@seantrane/github-label-presets/next.svg)](https://www.npmjs.com/package/@seantrane/github-label-presets) [![npm downloads per week](https://img.shields.io/npm/dw/@seantrane/github-label-presets.svg)](https://www.npmjs.com/package/@seantrane/github-label-presets) [![npm total downloads](https://img.shields.io/npm/dt/@seantrane/github-label-presets.svg)](https://www.npmjs.com/package/@seantrane/github-label-presets)
 
