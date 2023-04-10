@@ -1,5 +1,12 @@
 # CHANGELOG
 
+# [1.2.0](https://github.com/seantrane/github-label-presets/compare/v1.1.0...v1.2.0) (2023-04-10)
+
+
+### Features
+
+* fixes, clean up, and simplification of usage ([f4a95a8](https://github.com/seantrane/github-label-presets/commit/f4a95a8b917aedd94eb61f16f29c78837e362811))
+
 # [1.1.0](https://github.com/seantrane/github-label-presets/compare/v1.0.4...v1.1.0) (2019-02-20)
 
 
