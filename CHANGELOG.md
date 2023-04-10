@@ -1,5 +1,17 @@
 # CHANGELOG
 
+# [2.0.0](https://github.com/seantrane/github-label-presets/compare/v1.2.0...v2.0.0) (2023-04-10)
+
+
+### Continuous Integration
+
+* improve linting ([784ab90](https://github.com/seantrane/github-label-presets/commit/784ab902be5d09dc1b93bdd766b6ee23b66bf390))
+
+
+### BREAKING CHANGES
+
+* Bumping to v2, as this is no longer published to a registry.
+
 # [1.2.0](https://github.com/seantrane/github-label-presets/compare/v1.1.0...v1.2.0) (2023-04-10)
 
 
