@@ -113,7 +113,7 @@ jobs:
           # Use github-label-presets:
           LABEL_CONFIG_PATH: https://raw.githubusercontent.com/seantrane/github-label-presets/main/labels.json
           # Use your own labels:
-          # LABEL_CONFIG_PATH: ./.github/labels.json
+          # LABEL_CONFIG_PATH: .github/labels.json
 ```
 
 ### Config your own...
