@@ -27,7 +27,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT }}
           fetch-depth: 0
 
       # https://github.com/marketplace/actions/semantic-release-action#usage
@@ -35,7 +35,7 @@ jobs:
         uses: docker://ghcr.io/codfish/semantic-release-action:v2
         id: semantic
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         with:
           tag_format: 'v${version}'
           additional_packages: |
