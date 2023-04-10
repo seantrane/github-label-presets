@@ -1,0 +1,40 @@
+# Editor configuration, see http://editorconfig.org
+root = true
+
+[*]
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.go]
+charset = utf-8
+indent_size = 4
+
+[*.{html,css,less,sass,scss}]
+charset = utf-8
+
+[*.{js,jsx,json,ts,tsx}]
+charset = utf-8
+
+[*.{md,rst}]
+charset = utf-8
+max_line_length = off
+trim_trailing_whitespace = false
+
+[*.php]
+charset = utf-8
+indent_size = 4
+insert_final_newline = false
+
+[*.py]
+charset = utf-8
+indent_size = 4
+
+[*.rb]
+charset = utf-8
+
+[{m,M}akefile]
+charset = utf-8
+indent_style = tab

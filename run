@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+#
+# Run a command, via local directories first, then the environment/PATH.
+# shellcheck disable=SC2145
+
+set -e
+
+################################################################################
+# Run a command, via local directories first, then the environment/PATH.
+# Globals:
+#   None
+# Options:
+#   None
+# Arguments:
+#   [] $args  Command to execute.
+# Returns:
+#   None
+################################################################################
+run () {
+  local id="${1:-}"
+  if [[ -n "${id}" ]]; then
+    # Try to execute local scripts first.
+    if   [[ -x "./${id}" ]]; then
+      "./$@"
+    elif [[ -x "./bin/${id}" ]]; then
+      "./bin/$@"
+    elif [[ -x "./scripts/${id}" ]]; then
+      "./scripts/$@"
+    elif [[ -x "./functions/${id}" ]]; then
+      "./functions/$@"
+    elif [[ -x "./scripts/aliases/${id}" ]]; then
+      "./scripts/aliases/$@"
+    elif [[ -x "./scripts/functions/${id}" ]]; then
+      "./scripts/functions/$@"
+    else
+      # Or pass it to the command line.
+      "$@"
+    fi
+  fi
+}
+
+run "$@"

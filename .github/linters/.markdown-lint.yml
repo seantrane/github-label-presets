@@ -1,0 +1,42 @@
+---
+line-length: false
+first-header-h1: false
+first-heading-h1: false
+first-line-h1: false
+header-increment: false
+heading-increment: false
+no-duplicate-header: false
+no-duplicate-heading: false
+no-inline-html:
+  allowed_elements:
+    - 'a'
+    - 'i'
+    - 'em'
+    - 'b'
+    - 'strong'
+    - 'br'
+    - 'h1'
+    - 'h2'
+    - 'h3'
+    - 'h4'
+    - 'h5'
+    - 'p'
+    - 'div'
+    - 'article'
+    - 'section'
+    - 'span'
+    - 'code'
+    - 'pre'
+    - 'table'
+    - 'thead'
+    - 'tbody'
+    - 'tfoot'
+    - 'th'
+    - 'tr'
+    - 'td'
+    - 'ul'
+    - 'ol'
+    - 'li'
+no-multiple-blanks: false
+no-trailing-punctuation: false
+single-h1: false

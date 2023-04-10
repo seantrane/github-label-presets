@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Running GitHub Super-Linter Locally
+# https://github.com/github/super-linter/blob/main/docs/run-linter-locally.md
+
+if [ "$(whoami)" == "runner" ]; then
+  : # echo "We are on GitHub, so don't run lint manually"
+else
+  # echo "Running locally because we don't think we are on GitHub"
+  docker run --rm \
+    -e RUN_LOCAL=true \
+    -e USE_FIND_ALGORITHM=true \
+    --env-file "$PWD/.github/super-linter.env" \
+    -v "$PWD":/tmp/lint github/super-linter:v4
+fi
