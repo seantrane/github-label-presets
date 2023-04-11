@@ -1,0 +1,29 @@
+---
+name: Repository Maintenance
+
+on:
+  label:
+    types: [created, edited, deleted]
+  push:
+    branches: [main]
+    paths:
+      - .github/labels.json
+      - .github/workflows/label-sync.yml
+      - .github/workflows/labels.yml
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  repository-projects: write
+
+jobs:
+  labels:
+    uses: seantrane/engineering/.github/workflows/label-sync.yml@main
+    with:
+      config: ./labels.json

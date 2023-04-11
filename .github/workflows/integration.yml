@@ -21,11 +21,9 @@ permissions:
   pull-requests: write
 
 jobs:
-  linter:
-    name: Super-Linter
-    uses: ./.github/workflows/linter.yml
-
-  semantic_pr:
-    name: Semantic Pull Request
+  semver:
     if: ${{ github.base_ref != '' || github.event_name == 'pull_request' }}
-    uses: ./.github/workflows/semantic-pr.yml
+    uses: seantrane/engineering/.github/workflows/semantic-pr.yml@main
+
+  lint:
+    uses: seantrane/engineering/.github/workflows/linter.yml@main
