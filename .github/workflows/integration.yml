@@ -23,9 +23,11 @@ permissions:
 jobs:
   linter:
     name: Super-Linter
-    uses: ./.github/workflows/linter.yml
+    # uses: ./.github/workflows/linter.yml
+    uses: seantrane/engineering/.github/workflows/linter.yml@main
 
   semantic_pr:
     name: Semantic Pull Request
     if: ${{ github.base_ref != '' || github.event_name == 'pull_request' }}
-    uses: ./.github/workflows/semantic-pr.yml
+    # uses: ./.github/workflows/semantic-pr.yml
+    uses: seantrane/engineering/.github/workflows/semantic-pr.yml@main
