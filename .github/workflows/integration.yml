@@ -9,6 +9,7 @@ on:
     paths:
       - ./.github/workflows/integration.yml
       - ./.github/workflows/linter.yml
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
