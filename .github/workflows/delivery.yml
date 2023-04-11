@@ -10,62 +10,15 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write
+  id-token: write
+  issues: write
+  discussions: write
+  packages: write
+  pull-requests: write
 
 jobs:
   release:
-    name: Semantic Release
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      id-token: write
-      issues: write
-      discussions: write
-      packages: write
-      pull-requests: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.GH_PAT }}
-          fetch-depth: 0
-
-      # https://github.com/marketplace/actions/semantic-release-action#usage
-      - name: Semantic Release
-        uses: docker://ghcr.io/codfish/semantic-release-action:v2
-        id: semantic
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-        with:
-          tag_format: 'v${version}'
-          additional_packages: |
-            [
-              '@semantic-release/changelog',
-              '@semantic-release/git'
-            ]
-          plugins: |
-            [
-              '@semantic-release/commit-analyzer',
-              '@semantic-release/release-notes-generator',
-              ['@semantic-release/changelog', {changelogTitle: '# CHANGELOG'}],
-              '@semantic-release/github',
-              '@semantic-release/git'
-            ]
-          # specify default branches to add support for the `main` branch
-          # which semantic-release doesn't have as a default yet.
-          branches: |
-            [
-              '+([0-9])?(.{+([0-9]),x}).x',
-              'releases/+([0-9])?(.{+([0-9]),x}).x',
-              'main',
-              'next',
-              'next-major',
-              {
-                name: 'beta',
-                prerelease: true
-              },
-              {
-                name: 'alpha',
-                prerelease: true
-              }
-            ]
+    uses: seantrane/engineering/.github/workflows/semantic-release.yml@main
+    secrets:
+      token: ${{ secrets.GH_PAT }}
