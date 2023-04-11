@@ -7,8 +7,8 @@ on:
   push:
     branches: [main]
     paths:
-      - ./.github/workflows/integration.yml
-      - ./.github/workflows/linter.yml
+      - '.github/workflows/integration.yml'
+      - '.github/workflows/linter.yml'
   workflow_dispatch:
 
 concurrency:
