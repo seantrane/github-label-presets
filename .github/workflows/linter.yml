@@ -1,0 +1,49 @@
+---
+name: Super-Linter
+# https://github.com/marketplace/actions/super-linter
+
+on:
+  workflow_call:
+    inputs:
+      image:
+        description: Super-Linter Image Variant ("" or "/slim")
+        required: false
+        type: string
+        default: /slim
+      tag:
+        description: Super-Linter Image Tag ("v4")
+        required: false
+        type: string
+        default: v4
+
+env:
+  GH_SL: github/super-linter${{ inputs.image }}@${{ inputs.tag }}
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  statuses: write
+  pull-requests: write
+
+jobs:
+  lint:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Full git history is needed to get a proper
+          # list of changed files within `super-linter`
+          fetch-depth: 0
+
+      - name: Load Super-Linter Config
+        # Load super-linter config from '.github/super-linter.env' file.
+        run: test -f .github/super-linter.env && cat .github/super-linter.env >> "$GITHUB_ENV"
+
+      - name: Lint Code Base
+        uses: ${{ env.GH_SL }}
