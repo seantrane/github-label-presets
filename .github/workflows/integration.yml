@@ -2,8 +2,13 @@
 name: Continuous Integration
 
 on:
-  pull_request_target:
+  pull_request:
     branches: [master, main, 'releases/**', 'feat/**', 'fix/**']
+  push:
+    branches: [main]
+    paths:
+      - ./.github/workflows/integration.yml
+      - ./.github/workflows/linter.yml
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -11,7 +16,44 @@ concurrency:
 
 permissions:
   contents: read
+  statuses: write
+  pull-requests: write
 
 jobs:
   lint:
     uses: ./.github/workflows/linter.yml
+
+  semantic_pull_request:
+    name: Semantic Pull Request
+    if: ${{ github.base_ref != '' || github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v5
+        id: lint_pr_title
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: marocchino/sticky-pull-request-comment@v2
+        # When the previous steps fails, the workflow would stop. By adding this
+        # condition you can continue the execution with the populated error message.
+        if: always() && (steps.lint_pr_title.outputs.error_message != null)
+        with:
+          header: pr-title-lint-error
+          message: |
+            Hey there and thank you for opening this pull request! 👋🏼
+
+            Pull request titles must follow [Conventional Commits specification](https://www.conventionalcommits.org).
+            Your PR title needs to be adjusted. You can use [commitlint.io](https://commitlint.io) as a helper.
+
+            Details:
+
+            ```
+            ${{ steps.lint_pr_title.outputs.error_message }}
+            ```
+
+      # Delete a previous comment when the issue has been resolved
+      - uses: marocchino/sticky-pull-request-comment@v2
+        if: ${{ steps.lint_pr_title.outputs.error_message == null }}
+        with:
+          header: pr-title-lint-error
+          delete: true
