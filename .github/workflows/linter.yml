@@ -5,19 +5,16 @@ name: Super-Linter
 on:
   workflow_call:
     inputs:
-      image:
-        description: Super-Linter Image Variant ("" or "/slim")
+      slim:
+        description: Enable Super-Linter "Slim" Image Variant
         required: false
-        type: string
-        default: /slim
-      tag:
-        description: Super-Linter Image Tag ("v4")
+        type: boolean
+        default: true
+      version:
+        description: Super-Linter Version
         required: false
-        type: string
-        default: v4
-
-env:
-  GH_SL: github/super-linter${{ inputs.image }}@${{ inputs.tag }}
+        type: number
+        default: 4
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -45,5 +42,10 @@ jobs:
         # Load super-linter config from '.github/super-linter.env' file.
         run: test -f .github/super-linter.env && cat .github/super-linter.env >> "$GITHUB_ENV"
 
-      - name: Lint Code Base
-        uses: ${{ env.GH_SL }}
+      - name: Lint Code Base (slim)
+        uses: github/super-linter/slim@v4
+        if: ${{ inputs.version == 4 && inputs.slim == true }}
+
+      - name: Lint Code Base (default)
+        uses: github/super-linter@v4
+        if: ${{ inputs.version == 4 && inputs.slim == false }}
