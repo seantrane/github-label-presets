@@ -16,10 +16,6 @@ on:
         type: number
         default: 4
 
-concurrency:
-  group: ${{ github.ref }}-${{ github.workflow }}
-  cancel-in-progress: true
-
 permissions:
   contents: read
   statuses: write
